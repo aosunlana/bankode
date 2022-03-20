@@ -1,6 +1,6 @@
 # bankode
 
-A new Flutter project.
+A mobile app that utilizes the Bloc state management to display a list of Nigerian banks and their respective info including ussd codes, logo,
 
 ## Getting Started
 
