@@ -1,8 +1,9 @@
-import 'package:bankode/core/apis/constants/api_constant.dart';
 import 'package:http/http.dart';
 import '../models/banks.dart';
 import 'base_request.dart';
 import 'package:http/http.dart' as http;
+
+import 'constants/api_constant.dart';
 
 class NigerianBankApiClient implements HTTPRequest<List<Banks>> {
   final ApiConstant url;

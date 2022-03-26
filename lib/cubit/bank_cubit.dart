@@ -1,7 +1,7 @@
-import 'package:bankode/core/apis/base_request.dart';
+import 'package:bankode/data/data_providers/base_request.dart';
+import 'package:bankode/data/models/banks.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import '../models/banks.dart';
 import 'bank_state.dart';
 
 class NigerianBankCubit extends Cubit<NigerianBankState> {
@@ -19,17 +19,6 @@ class NigerianBankCubit extends Cubit<NigerianBankState> {
       debugPrint(e.toString());
     }
   }
-  //
-  // Future<void> searchBank(query) async {
-  //   final result = await httpRequest.execute();
-  //   results =
-  //       NigerianBankLoadedState(result).bankList.where((bankData) {
-  //     final bankName = bankData.name.toLowerCase();
-  //     final input = query.toLowerCase();
-  //
-  //     return bankName.contains(input);
-  //   }).toList();
-  // }
 
   //This function is called whenever the text field changes.
   Future<void> runFilter(String enteredKeyword) async {
@@ -40,7 +29,17 @@ class NigerianBankCubit extends Cubit<NigerianBankState> {
       emit(NigerianBankLoadedState(filteredResult));
     }
   }
-
+//This static method is called in the initState function and serves as the welcome greeting to the user
+  static String userGreeting() {
+    var hour = DateTime.now().hour;
+    if (hour < 12) {
+      return 'Morning';
+    }
+    if (hour < 17) {
+      return 'Afternoon';
+    }
+    return 'Evening';
+  }
 
 }
 

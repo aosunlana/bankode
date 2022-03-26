@@ -1,18 +1,20 @@
-import 'package:bankode/ui/shared/utils/constants.dart';
+import 'package:bankode/presentation/components/utils/constants.dart';
+import 'package:bankode/routes.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../routes.dart';
-
-class EntryView extends StatelessWidget {
+class EntryView extends StatefulWidget {
   const EntryView({Key? key}) : super(key: key);
 
   @override
+  State<EntryView> createState() => _EntryViewState();
+}
+
+class _EntryViewState extends State<EntryView> {
+  @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(
-        const SystemUiOverlayStyle(statusBarColor: Color(0xFF263238)));
+    TextEditingController controller = TextEditingController();
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: const Color(0xFF263238),
@@ -57,12 +59,12 @@ class EntryView extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10.r),
                     borderSide: const BorderSide(color: kPrimaryColor)),
                   ),
+                  controller: controller,
                 ),
                 SizedBox(height: 50.h,),
                 SizedBox(width: double.infinity,
                   child: ElevatedButton(style: ElevatedButton.styleFrom(padding: EdgeInsets.symmetric(vertical: 15.h),primary: kEntryLightColor,),
-                    onPressed: () =>
-                        Navigator.of(context).pushNamed(RouteGenerator.homeView),
+                    onPressed: () => Navigator.of(context).pushNamed(RouteGenerator.homeView, arguments: controller.text),
                     child: Text('Continue', style: GoogleFonts.rubik(fontSize: 20 , fontWeight: FontWeight.w700),),
                   ),
                 ),

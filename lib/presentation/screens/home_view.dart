@@ -1,19 +1,17 @@
-import 'package:bankode/core/cubit/bank_cubit.dart';
-import 'package:bankode/core/cubit/bank_state.dart';
-import 'package:bankode/core/models/banks.dart';
-import 'package:bankode/ui/shared/utils/constants.dart';
+import 'package:bankode/cubit/bank_cubit.dart';
+import 'package:bankode/cubit/bank_state.dart';
+import 'package:bankode/data/models/banks.dart';
+import 'package:bankode/presentation/components/utils/constants.dart';
+import 'package:bankode/routes.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shimmer/shimmer.dart';
 
-import '../../../routes.dart';
-
-
 class HomeView extends StatefulWidget {
-  const HomeView({Key? key}) : super(key: key);
+  final String nickName;
+  const HomeView({Key? key, required this.nickName}) : super(key: key);
 
   @override
   _HomeViewState createState() => _HomeViewState();
@@ -24,12 +22,11 @@ class _HomeViewState extends State<HomeView> {
   void initState() {
     super.initState();
     context.read<NigerianBankCubit>().loadBankList();
+    NigerianBankCubit.userGreeting();
   }
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(
-        const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -66,12 +63,12 @@ class _HomeViewState extends State<HomeView> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Good Evening',
+                            Text('Good ${NigerianBankCubit.userGreeting()}',
                                 style: TextStyle(
                                     fontSize: ScreenUtil().setSp(16),
                                     fontWeight: FontWeight.w300)),
                             Text(
-                              'Barak',
+                              widget.nickName.toString(),
                               style: TextStyle(
                                   fontSize: ScreenUtil().setSp(20),
                                   fontWeight: FontWeight.w700),
@@ -95,7 +92,7 @@ class _HomeViewState extends State<HomeView> {
                   borderRadius: BorderRadius.all(Radius.circular(10.r)),
                   child: Container(
                     width: ScreenUtil().setWidth(341),
-                    height: ScreenUtil().setWidth(132),
+                    height: ScreenUtil().setHeight(132),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(10.r)),
                       color: kWeatherContainerColor,
@@ -198,11 +195,13 @@ class _HomeViewState extends State<HomeView> {
                         itemCount: state.bankList.length,
                         itemBuilder: (context, index) {
                           List<Banks> bankList = state.bankList;
-                          // log(bankList[38].name);
                           return Padding(
                             padding: EdgeInsets.symmetric(
                                 vertical: ScreenUtil().setHeight(7)),
-                            child: InkWell(onTap: () => Navigator.of(context).pushNamed(RouteGenerator.bankInfo),
+                            child: InkWell(
+                              onTap: () => Navigator.of(context).pushNamed(
+                                  RouteGenerator.bankInfo,
+                                  arguments: bankList[index]),
                               child: Material(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(10.r)),
@@ -213,14 +212,16 @@ class _HomeViewState extends State<HomeView> {
                                     child: Row(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
-                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
                                       children: [
                                         Container(
                                           height: ScreenUtil().setWidth(54),
                                           width: ScreenUtil().setWidth(54),
                                           decoration: BoxDecoration(
                                             shape: BoxShape.circle,
-                                            color: Colors.black.withOpacity(0.12),
+                                            color:
+                                                Colors.black.withOpacity(0.12),
                                           ),
                                           child: ClipOval(
                                             child: Image.network(
@@ -244,8 +245,8 @@ class _HomeViewState extends State<HomeView> {
                                   width: ScreenUtil().setWidth(342),
                                   height: ScreenUtil().setWidth(85),
                                   decoration: BoxDecoration(
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(26.r)),
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(26.r)),
                                       color: kPrimaryColor),
                                 ),
                               ),
