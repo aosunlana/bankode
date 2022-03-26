@@ -1,3 +1,5 @@
+import 'package:bankode/data/data_providers/data_provider.dart';
+import 'package:bankode/data/repositories/bank_repository.dart';
 import 'package:bankode/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -5,10 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart';
-
 import 'cubit/bank_cubit.dart';
-import 'data/data_providers/constants/api_constant.dart';
-import 'data/data_providers/nigerian_bank_api_client.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,9 +23,9 @@ class BankodeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<NigerianBankCubit>(
-      create: (BuildContext context) => NigerianBankCubit(NigerianBankApiClient(
-        url: ApiConstant(),
-        client: Client(),
+      create: (BuildContext context) =>
+          NigerianBankCubit(NigerianBankRepository(
+        apiClient: ApiClient(Client()),
       )),
       child: ScreenUtilInit(
         designSize: const Size(375, 812),

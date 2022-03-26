@@ -21,7 +21,8 @@ class _EntryViewState extends State<EntryView> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(16)),
+            padding:
+                EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(16)),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -48,24 +49,41 @@ class _EntryViewState extends State<EntryView> {
                 TextField(
                   decoration: InputDecoration(
                     hintText: 'Nick Name',
-                    hintStyle: const TextStyle(color: kEntryLightColor, fontWeight: FontWeight.w100),
+                    hintStyle: const TextStyle(
+                        color: kEntryLightColor, fontWeight: FontWeight.w100),
                     border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.r),
-                        borderSide: const BorderSide(color: kPrimaryColor, ),),
+                      borderRadius: BorderRadius.circular(10.r),
+                      borderSide: const BorderSide(
+                        color: kPrimaryColor,
+                      ),
+                    ),
                     enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.r),
-                    borderSide: const BorderSide(color: kEntryLightColor)),
+                        borderRadius: BorderRadius.circular(10.r),
+                        borderSide: const BorderSide(color: kEntryLightColor)),
                     focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.r),
-                    borderSide: const BorderSide(color: kPrimaryColor)),
+                        borderRadius: BorderRadius.circular(10.r),
+                        borderSide: const BorderSide(color: kPrimaryColor)),
                   ),
                   controller: controller,
                 ),
-                SizedBox(height: 50.h,),
-                SizedBox(width: double.infinity,
-                  child: ElevatedButton(style: ElevatedButton.styleFrom(padding: EdgeInsets.symmetric(vertical: 15.h),primary: kEntryLightColor,),
-                    onPressed: () => Navigator.of(context).pushNamed(RouteGenerator.homeView, arguments: controller.text),
-                    child: Text('Continue', style: GoogleFonts.rubik(fontSize: 20 , fontWeight: FontWeight.w700),),
+                SizedBox(
+                  height: 50.h,
+                ),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      padding: EdgeInsets.symmetric(vertical: 15.h),
+                      primary: kEntryLightColor,
+                    ),
+                    onPressed: () => Navigator.of(context).pushNamed(
+                        RouteGenerator.homeView,
+                        arguments: controller.text),
+                    child: Text(
+                      'Continue',
+                      style: GoogleFonts.rubik(
+                          fontSize: 20, fontWeight: FontWeight.w700),
+                    ),
                   ),
                 ),
               ],

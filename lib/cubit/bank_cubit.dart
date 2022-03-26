@@ -1,5 +1,5 @@
-import 'package:bankode/data/data_providers/base_request.dart';
 import 'package:bankode/data/models/banks.dart';
+import 'package:bankode/data/repositories/base_request.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'bank_state.dart';
