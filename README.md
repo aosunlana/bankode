@@ -12,18 +12,11 @@
 
 ## Install
 
-```sh
 Download or clone this repo by using the link below:
-```
-
-## Usage
-
 ```sh
-Download or clone this repo by using the link below:
+https://github.com/developerBarak/bankode.git
 ```
-
-## Run tests
-
+Go to project root and execute the following command in console to get the required dependencies:
 ```sh
 flutter pub get 
 ```
