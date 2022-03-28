@@ -88,11 +88,43 @@ class _HomeViewState extends State<HomeView> {
                   height: ScreenUtil().setHeight(27),
                 ),
                 Material(
-                  elevation: ScreenUtil().setSp(10),
+                  elevation: ScreenUtil().setSp(5),
                   borderRadius: BorderRadius.all(Radius.circular(10.r)),
                   child: Container(
                     width: ScreenUtil().setWidth(341),
                     height: ScreenUtil().setHeight(132),
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                          vertical: ScreenUtil().setHeight(20),
+                          horizontal: ScreenUtil().setWidth(20)),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Your current Location',
+                            style: TextStyle(
+                                fontSize: ScreenUtil().setSp(14),
+                                fontWeight: FontWeight.w400),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text('Lagos, NG', style: TextStyle(fontSize: ScreenUtil().setSp(28), fontWeight: FontWeight.w700),),
+                              SizedBox(
+                                height: ScreenUtil().setHeight(70),
+                                width: ScreenUtil().setWidth(70),
+                                child: Image.asset(
+                                  'assets/images/weather.png',
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(10.r)),
                       color: kWeatherContainerColor,

@@ -7,4 +7,4 @@ const kPrimaryColor = Color(0xFFFFFFFF);
 const kBackgroundColor = Color(0xFFE5E5E5);
 const kEntryLightColor = Color(0xFF4f5b62);
 const kEntryDarkColor = Color(0xFF000a12);
-const kWeatherContainerColor = Color(0xFFFCEEF0);
+const kWeatherContainerColor = Color(0xFFFBF4F7);

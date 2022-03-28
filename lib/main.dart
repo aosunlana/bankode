@@ -11,8 +11,6 @@ import 'cubit/bank_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // final cameras = await availableCameras();
-  // final firstCamera = cameras.first;
 
   runApp(const BankodeApp());
 }

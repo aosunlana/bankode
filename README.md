@@ -1,24 +1,48 @@
-# bankode
-
-<p align="center">
-    A mobile app that utilizes the Bloc state management to display a list of Nigerian banks and their respective info including ussd codes, logo.
+<h1 align="center">Welcome to Bankode 👋</h1>
+<p>
+  <a href="https://github.com/developerBarak/bankode#readme" target="_blank">
+    <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
+  </a>
+  <a href="https://twitter.com/developerBarak" target="_blank">
+    <img alt="Twitter: developerBarak" src="https://img.shields.io/twitter/follow/developerBarak.svg?style=social" />
+  </a>
 </p>
 
-[__Explore the docs »__](https://github.com/developerBarak/bankode#readme)
+> A mobile app that utilizes cubit, displays a list of Nigerian banks and their respective info including ussd codes, logo.
 
+## Install
 
+```sh
+Download or clone this repo by using the link below:
+```
 
+## Usage
 
+```sh
+Download or clone this repo by using the link below:
+```
 
-## Getting Started
+## Run tests
 
-This project is a starting point for a Flutter application.
+```sh
+flutter pub get 
+```
 
-A few resources to get you started if this is your first Flutter project:
+## Author
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+👤 **Barak**
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* Twitter: [@developerBarak](https://twitter.com/developerBarak)
+* Github: [@developerBarak](https://github.com/developerBarak)
+* LinkedIn: [@developerbarak](https://linkedin.com/in/developerbarak)
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/developerBarak/bankode/issues). You can also take a look at the [contributing guide](Feel free to modify the code to aid understanding the project. You may contribute by opening an issue or sending a pull request).
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
