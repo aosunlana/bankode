@@ -1,6 +1,19 @@
 # bankode
 
-A mobile app that utilizes the Bloc state management to display a list of Nigerian banks and their respective info including ussd codes, logo,
+<p align="center">
+    A mobile app that utilizes the Bloc state management to display a list of Nigerian banks and their respective info including ussd codes, logo.
+</p>
+
+
+[**Explore the docs »**](https://github.com/developerBarak/bankode#readme)
+
+
+<p align="center">
+[**Explore the docs »**](https://github.com/developerBarak/bankode#readme)
+</p>
+
+
+
 
 ## Getting Started
 
