@@ -1,5 +1,7 @@
+import 'package:bankode/cubit/geolocation_cubit.dart';
 import 'package:bankode/data/data_providers/data_provider.dart';
 import 'package:bankode/data/repositories/bank_repository.dart';
+import 'package:bankode/data/repositories/location_repository.dart';
 import 'package:bankode/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -20,37 +22,47 @@ class BankodeApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<NigerianBankCubit>(
-      create: (BuildContext context) =>
-          NigerianBankCubit(NigerianBankRepository(
-        apiClient: ApiClient(Client()),
-      )),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<NigerianBankCubit>(
+          create: (BuildContext context) =>
+              NigerianBankCubit(NigerianBankRepository(
+                apiClient: ApiClient(Client()),
+              )),
+        ),
+        BlocProvider<GeolocationCubit>(
+          create: (BuildContext context) => GeolocationCubit(LocationRepository()),
+        ),
+      ],
       child: ScreenUtilInit(
         designSize: const Size(375, 812),
         minTextAdapt: true,
         splitScreenMode: true,
-        builder: () => MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'Bankode App',
-          theme: ThemeData(
-              primarySwatch: Colors.pink,
-              textTheme:
-                  GoogleFonts.rubikTextTheme(Theme.of(context).textTheme)),
-          builder: (context, child) {
-            return AnnotatedRegion<SystemUiOverlayStyle>(
-              child: child!,
-              value: const SystemUiOverlayStyle(
-                statusBarColor: Colors.transparent,
-                statusBarIconBrightness: Brightness.dark,
-                systemNavigationBarColor: Color(0XFFFFFFFF),
-                systemNavigationBarIconBrightness: Brightness.dark,
-              ),
-            );
-          },
-          onGenerateTitle: (context) => "Bankode App",
-          initialRoute: RouteGenerator.onboardingView,
-          onGenerateRoute: RouteGenerator.generateRoute,
-        ),
+        builder: () =>
+            MaterialApp(
+              debugShowCheckedModeBanner: false,
+              title: 'Bankode App',
+              theme: ThemeData(
+                  primarySwatch: Colors.pink,
+                  textTheme:
+                  GoogleFonts.rubikTextTheme(Theme
+                      .of(context)
+                      .textTheme)),
+              builder: (context, child) {
+                return AnnotatedRegion<SystemUiOverlayStyle>(
+                  child: child!,
+                  value: const SystemUiOverlayStyle(
+                    statusBarColor: Colors.transparent,
+                    statusBarIconBrightness: Brightness.dark,
+                    systemNavigationBarColor: Color(0XFFFFFFFF),
+                    systemNavigationBarIconBrightness: Brightness.dark,
+                  ),
+                );
+              },
+              onGenerateTitle: (context) => "Bankode App",
+              initialRoute: RouteGenerator.onboardingView,
+              onGenerateRoute: RouteGenerator.generateRoute,
+            ),
       ),
     );
   }
