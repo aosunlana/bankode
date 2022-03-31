@@ -46,11 +46,12 @@ class _EntryViewState extends State<EntryView> {
                 SizedBox(
                   height: 150.h,
                 ),
-                TextField(
+                TextField(style: const TextStyle(color: kPrimaryColor),
                   decoration: InputDecoration(
                     hintText: 'Nick Name',
                     hintStyle: const TextStyle(
-                        color: kEntryLightColor, fontWeight: FontWeight.w100),
+                        color: kEntryLightColor, fontWeight: FontWeight.w100,
+                    ),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
                       borderSide: const BorderSide(
