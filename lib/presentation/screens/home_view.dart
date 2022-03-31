@@ -1,5 +1,7 @@
 import 'package:bankode/cubit/bank_cubit.dart';
 import 'package:bankode/cubit/bank_state.dart';
+import 'package:bankode/cubit/geolocation_cubit.dart';
+import 'package:bankode/cubit/geolocation_state.dart';
 import 'package:bankode/data/models/banks.dart';
 import 'package:bankode/presentation/components/utils/constants.dart';
 import 'package:bankode/routes.dart';
@@ -7,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:shimmer/shimmer.dart';
 
 class HomeView extends StatefulWidget {
@@ -22,6 +25,7 @@ class _HomeViewState extends State<HomeView> {
   void initState() {
     super.initState();
     context.read<NigerianBankCubit>().loadBankList();
+    context.read<GeolocationCubit>().getPositionStream();
     NigerianBankCubit.userGreeting();
   }
 
@@ -111,7 +115,36 @@ class _HomeViewState extends State<HomeView> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Text('Lagos, NG', style: TextStyle(fontSize: ScreenUtil().setSp(28), fontWeight: FontWeight.w700),),
+                              BlocBuilder<GeolocationCubit, GeolocationState>(
+                                builder: (context, state) {
+                                  if (state is GeolocationLoadedState) {
+                                    return StreamBuilder<Position>(
+                                    stream: state.position,
+                                    builder: (context, snapshot) {
+                                      if (snapshot.hasData) {
+                                        final data = snapshot.data;
+                                        if (data != null) {
+                                          final lat = data.latitude.toStringAsFixed(5);
+                                          final lon = data.longitude.toStringAsFixed(5);
+                                          return Text("$lat | $lon");
+                                        } else {
+                                          return const Text("No data available.");
+                                        }
+                                      }
+                                      return Text(
+                                        'Lagos, NG',
+                                        style: TextStyle(
+                                            fontSize: ScreenUtil().setSp(28),
+                                            fontWeight: FontWeight.w700),
+                                      );
+                                    }
+                                  );
+                                  }
+                                  else {
+                                    return const SizedBox.shrink();
+                                  }
+                                },
+                              ),
                               SizedBox(
                                 height: ScreenUtil().setHeight(70),
                                 width: ScreenUtil().setWidth(70),
