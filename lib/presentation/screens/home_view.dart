@@ -127,12 +127,10 @@ class _HomeViewState extends State<HomeView> {
                                           final lat = data.latitude.toStringAsFixed(5);
                                           final lon = data.longitude.toStringAsFixed(5);
                                           return Text("$lat | $lon");
-                                        } else {
-                                          return const Text("No data available.");
                                         }
                                       }
                                       return Text(
-                                        'Lagos, NG',
+                                        'No data available',
                                         style: TextStyle(
                                             fontSize: ScreenUtil().setSp(28),
                                             fontWeight: FontWeight.w700),
@@ -141,7 +139,12 @@ class _HomeViewState extends State<HomeView> {
                                   );
                                   }
                                   else {
-                                    return const SizedBox.shrink();
+                                    return Text(
+                                      'No data available',
+                                      style: TextStyle(
+                                          fontSize: ScreenUtil().setSp(28),
+                                          fontWeight: FontWeight.w700),
+                                    );
                                   }
                                 },
                               ),
