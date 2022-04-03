@@ -1,5 +1,6 @@
 import 'package:bankode/cubit/bank_cubit.dart';
 import 'package:bankode/data/models/banks.dart';
+import 'package:bankode/data/services/utility_services/calls_service.dart';
 import 'package:bankode/presentation/screens/bank_view/widget/info_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -41,6 +42,7 @@ class _BankInfoState extends State<BankInfo> {
           child: Column(
             children: [
               BankInfoContainer(
+                  onTap: () => CallService.call(widget.bank.ussd),
                   infoTitle: 'Dial Bank USSD ${widget.bank.ussd}',
                   infoSubtitle:
                       'For swift transactions, you can tap here to dial\n Bank USSD directly',
@@ -50,18 +52,20 @@ class _BankInfoState extends State<BankInfo> {
               SizedBox(
                 height: ScreenUtil().setHeight(14),
               ),
-              const BankInfoContainer(
+              BankInfoContainer(
+                onTap: () {},
                 infoTitle: 'Download Bank App',
                 infoSubtitle:
                     'For swift transactions, you can tap here to dial\n Bank USSD directly',
                 infoImage: 'assets/images/cart.png',
-                infoColor: Color(0XFFFFF4D0),
-                infoTitleColor: Color(0XFF967509),
+                infoColor: const Color(0XFFFFF4D0),
+                infoTitleColor: const Color(0XFF967509),
               ),
               SizedBox(
                 height: ScreenUtil().setHeight(14),
               ),
               BankInfoContainer(
+                onTap: () {},
                 infoTitle: 'Bank Code ${widget.bank.code}',
                 infoSubtitle:
                     'For swift transactions, you can tap here to dial\n Bank USSD directly',

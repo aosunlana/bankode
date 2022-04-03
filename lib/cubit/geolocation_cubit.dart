@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:bankode/data/repositories/location_repository.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +13,6 @@ class GeolocationCubit extends Cubit<GeolocationState> {
     try {
       final result = await locationRepository.determinePosition();
       List<Placemark> placemarks = await placemarkFromCoordinates(result.latitude, result.longitude);
-      log(placemarks.toString());
       emit(GeolocationLoadedState(placemarks));
     } catch(e) {
       debugPrint(e.toString());
