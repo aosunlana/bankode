@@ -1,6 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:geolocator/geolocator.dart';
-
+import 'package:geocoding/geocoding.dart';
 
 abstract class GeolocationState extends Equatable {
   const GeolocationState();
@@ -12,7 +11,7 @@ class GeolocationLoadingState extends GeolocationState {
 }
 
 class GeolocationLoadedState extends GeolocationState {
-final Stream<Position> position;
+final List<Placemark> position;
 
 const GeolocationLoadedState(this.position);
 

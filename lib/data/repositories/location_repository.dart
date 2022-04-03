@@ -3,14 +3,14 @@ import 'package:geolocator/geolocator.dart';
 
 class LocationRepository {
 
-  Future<Stream<Position>> Function() get determinePosition => _determinePosition;
+  Future<Position> Function() get determinePosition => _determinePosition;
 
 
   /// Determine the current position of the device.
   ///
   /// When the location services are not enabled or permissions
   /// are denied the `Future` will return an error.
-  Future<Stream<Position>> _determinePosition() async {
+  Future<Position> _determinePosition() async {
     bool serviceEnabled;
     LocationPermission permission;
 
@@ -43,6 +43,6 @@ class LocationRepository {
     }
     // When we reach here, permissions are granted and we can
     // continue accessing the position of the device.
-    return Geolocator.getPositionStream();
+    return Geolocator.getCurrentPosition();
   }
 }

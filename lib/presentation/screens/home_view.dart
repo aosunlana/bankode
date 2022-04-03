@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:geolocator/geolocator.dart';
+import 'package:geocoding/geocoding.dart';
 import 'package:shimmer/shimmer.dart';
 
 class HomeView extends StatefulWidget {
@@ -118,32 +118,23 @@ class _HomeViewState extends State<HomeView> {
                               BlocBuilder<GeolocationCubit, GeolocationState>(
                                 builder: (context, state) {
                                   if (state is GeolocationLoadedState) {
-                                    return StreamBuilder<Position>(
-                                    stream: state.position,
-                                    builder: (context, snapshot) {
-                                      if (snapshot.hasData) {
-                                        final data = snapshot.data;
-                                        if (data != null) {
-                                          final lat = data.latitude.toStringAsFixed(5);
-                                          final lon = data.longitude.toStringAsFixed(5);
-                                          return Text("$lat | $lon");
-                                        }
-                                      }
-                                      return Text(
+                                    List<Placemark> placemark = state.position;
+                                    return Text(
+                                      placemark[0].locality!,
+                                      style: TextStyle(
+                                          fontSize: ScreenUtil().setSp(28),
+                                          fontWeight: FontWeight.w700),
+                                    );
+                                  } else {
+                                    return Shimmer.fromColors(
+                                      highlightColor: const Color(0xFFF5F5F5),
+                                      baseColor: const Color(0xFFBDBDBD),
+                                      child: Text(
                                         'No data available',
                                         style: TextStyle(
                                             fontSize: ScreenUtil().setSp(28),
                                             fontWeight: FontWeight.w700),
-                                      );
-                                    }
-                                  );
-                                  }
-                                  else {
-                                    return Text(
-                                      'No data available',
-                                      style: TextStyle(
-                                          fontSize: ScreenUtil().setSp(28),
-                                          fontWeight: FontWeight.w700),
+                                      ),
                                     );
                                   }
                                 },
