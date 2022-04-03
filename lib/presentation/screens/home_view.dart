@@ -3,6 +3,7 @@ import 'package:bankode/cubit/bank_state.dart';
 import 'package:bankode/cubit/geolocation_cubit.dart';
 import 'package:bankode/cubit/geolocation_state.dart';
 import 'package:bankode/data/models/banks.dart';
+import 'package:bankode/data/services/utility_services/calls_service.dart';
 import 'package:bankode/presentation/components/utils/constants.dart';
 import 'package:bankode/routes.dart';
 import 'package:flutter/material.dart';
@@ -82,7 +83,7 @@ class _HomeViewState extends State<HomeView> {
                       ],
                     ),
                     IconButton(
-                        onPressed: () => '',
+                        onPressed: () => CallService.sendEmail('www.bankode@gmail.com'),
                         icon: SvgPicture.asset(
                           'assets/icons/info-icon.svg',
                         ))
