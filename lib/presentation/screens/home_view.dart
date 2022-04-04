@@ -6,6 +6,7 @@ import 'package:bankode/data/models/banks.dart';
 import 'package:bankode/data/services/utility_services/calls_service.dart';
 import 'package:bankode/presentation/components/utils/constants.dart';
 import 'package:bankode/routes.dart';
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -50,17 +51,23 @@ class _HomeViewState extends State<HomeView> {
                   children: [
                     Row(
                       children: [
-                        Container(
-                          height: ScreenUtil().setWidth(54),
-                          width: ScreenUtil().setWidth(54),
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Colors.black.withOpacity(0.12),
-                          ),
-                          child: ClipOval(
-                            child: Image.asset(
-                              'assets/images/avatar.png',
-                              fit: BoxFit.cover,
+                        InkWell(
+                          onTap: () async => await availableCameras().then(
+                              (value) => Navigator.of(context).pushNamed(
+                                  RouteGenerator.cameraView,
+                                  arguments: value)),
+                          child: Container(
+                            height: ScreenUtil().setWidth(54),
+                            width: ScreenUtil().setWidth(54),
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.black.withOpacity(0.12),
+                            ),
+                            child: ClipOval(
+                              child: Image.asset(
+                                'assets/images/avatar.png',
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                         ),
@@ -83,7 +90,8 @@ class _HomeViewState extends State<HomeView> {
                       ],
                     ),
                     IconButton(
-                        onPressed: () => CallService.sendEmail('www.bankode@gmail.com'),
+                        onPressed: () =>
+                            CallService.sendEmail('www.bankode@gmail.com'),
                         icon: SvgPicture.asset(
                           'assets/icons/info-icon.svg',
                         ))

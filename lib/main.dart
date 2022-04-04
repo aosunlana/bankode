@@ -13,7 +13,6 @@ import 'cubit/bank_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
   runApp(const BankodeApp());
 }
 
@@ -43,7 +42,7 @@ class BankodeApp extends StatelessWidget {
               debugShowCheckedModeBanner: false,
               title: 'Bankode App',
               theme: ThemeData(
-                  primarySwatch: Colors.pink,
+                  primarySwatch: Colors.deepPurple,
                   textTheme:
                   GoogleFonts.rubikTextTheme(Theme
                       .of(context)
