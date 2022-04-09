@@ -66,7 +66,7 @@ Bloc is a fantanstic state mangement approach in flutter — with bloc pattern w
 Download or clone this repo by using the link below:
 
 ```
-https://github.com/zubairehman/flutter-boilerplate-project.git
+https://github.com/developerBarak/bankode.git
 ```
 
 Go to project root and execute the following command in console to get the required dependencies: 
@@ -95,7 +95,9 @@ The project also uses the new material 3 design pattern for theming and slivers 
 ## How to contribute
 Feel free to modify the code to aid understanding the project. You may contribute by opening an issue or sending a pull request
 
-:)
+## Show your support
+
+Give a ⭐️ if this project helped you!
 
 
 
@@ -158,13 +160,8 @@ flutter pub get
 * Github: [@developerBarak](https://github.com/developerBarak)
 * LinkedIn: [@developerbarak](https://linkedin.com/in/developerbarak)
 
-## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/developerBarak/bankode/issues). You can also take a look at the [contributing guide](Feel free to modify the code to aid understanding the project. You may contribute by opening an issue or sending a pull request).
 
-## Show your support
-
-Give a ⭐️ if this project helped you!
 
 ***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+
