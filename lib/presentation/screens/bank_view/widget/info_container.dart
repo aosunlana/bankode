@@ -28,7 +28,7 @@ class BankInfoContainer extends StatelessWidget {
           borderRadius: BorderRadius.circular(ScreenUtil().setSp(10))),
       child: Padding(
         padding: EdgeInsets.symmetric(
-            vertical: ScreenUtil().setHeight(25),
+            vertical: ScreenUtil().setHeight(23),
             horizontal: ScreenUtil().setWidth(24)),
         child: InkWell(
           onTap: onTap,
