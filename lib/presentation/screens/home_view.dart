@@ -162,8 +162,15 @@ class _HomeViewState extends State<HomeView> {
                       ),
                     ),
                     decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                          colors: [
+                            Color(0XFFF7F2FA),
+                            Color(0XFFF8DCE2),
+                          ],
+                          begin: Alignment.centerLeft,
+                          end: Alignment.centerRight),
                       borderRadius: BorderRadius.all(Radius.circular(10.r)),
-                      color: kWeatherContainerColor,
+                      // color: Colors.transparent,
                     ),
                   ),
                 ),
