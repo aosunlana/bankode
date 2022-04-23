@@ -26,42 +26,40 @@ class BankodeApp extends StatelessWidget {
         BlocProvider<NigerianBankCubit>(
           create: (BuildContext context) =>
               NigerianBankCubit(NigerianBankRepository(
-                apiClient: ApiClient(Client()),
-              )),
+            apiClient: ApiClient(Client()),
+          )),
         ),
         BlocProvider<GeolocationCubit>(
-          create: (BuildContext context) => GeolocationCubit(LocationRepository()),
+          create: (BuildContext context) =>
+              GeolocationCubit(LocationRepository()),
         ),
       ],
       child: ScreenUtilInit(
         designSize: const Size(375, 812),
         minTextAdapt: true,
         splitScreenMode: true,
-        builder: () =>
-            MaterialApp(
-              debugShowCheckedModeBanner: false,
-              title: 'Bankode App',
-              theme: ThemeData(
-                  primarySwatch: Colors.deepPurple,
-                  textTheme:
-                  GoogleFonts.rubikTextTheme(Theme
-                      .of(context)
-                      .textTheme)),
-              builder: (context, child) {
-                return AnnotatedRegion<SystemUiOverlayStyle>(
-                  child: child!,
-                  value: const SystemUiOverlayStyle(
-                    statusBarColor: Colors.transparent,
-                    statusBarIconBrightness: Brightness.dark,
-                    systemNavigationBarColor: Color(0XFFFFFFFF),
-                    systemNavigationBarIconBrightness: Brightness.dark,
-                  ),
-                );
-              },
-              onGenerateTitle: (context) => "Bankode App",
-              initialRoute: RouteGenerator.onboardingView,
-              onGenerateRoute: RouteGenerator.generateRoute,
-            ),
+        builder: () => MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Bankode',
+          theme: ThemeData(
+              primarySwatch: Colors.deepPurple,
+              textTheme:
+                  GoogleFonts.rubikTextTheme(Theme.of(context).textTheme)),
+          builder: (context, child) {
+            return AnnotatedRegion<SystemUiOverlayStyle>(
+              child: child!,
+              value: const SystemUiOverlayStyle(
+                statusBarColor: Colors.transparent,
+                statusBarIconBrightness: Brightness.dark,
+                systemNavigationBarColor: Color(0XFFFFFFFF),
+                systemNavigationBarIconBrightness: Brightness.dark,
+              ),
+            );
+          },
+          onGenerateTitle: (context) => "Bankode",
+          initialRoute: RouteGenerator.splashScreen,
+          onGenerateRoute: RouteGenerator.generateRoute,
+        ),
       ),
     );
   }

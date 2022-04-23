@@ -17,73 +17,82 @@ class _EntryViewState extends State<EntryView> {
     TextEditingController controller = TextEditingController();
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: const Color(0xFF263238),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
             padding:
-                EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(16)),
+                EdgeInsets.symmetric(horizontal: ScreenUtil().setWidth(20)),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  height: 200.h,
+                  height: 68.h,
                 ),
                 Text(
                   "Let's Get Started,",
                   style: GoogleFonts.rubik(
-                      fontSize: 34.sp,
-                      color: kPrimaryColor,
-                      fontWeight: FontWeight.w700),
+                      fontSize: 28.sp,
+                      color: Color(0XFF2F2F2F),
+                      fontWeight: FontWeight.w600),
                 ),
+                SizedBox(height: 2.h),
                 Text(
-                  "Enter your information below",
+                  "Kindly enter your display name and experience magik ",
                   style: GoogleFonts.rubik(
-                      fontSize: 14.sp,
-                      color: kPrimaryColor,
-                      fontWeight: FontWeight.w500),
+                      fontSize: 13.sp,
+                      color: Color(0XFF2F2F2F),
+                      fontWeight: FontWeight.w300),
                 ),
                 SizedBox(
-                  height: 150.h,
+                  height: 38.h,
                 ),
-                TextField(style: const TextStyle(color: kPrimaryColor),
+                TextField(
                   decoration: InputDecoration(
-                    hintText: 'Nick Name',
+                    hintText: 'Display Name',
                     hintStyle: const TextStyle(
-                        color: kEntryLightColor, fontWeight: FontWeight.w100,
+                      color: kEntryLightColor,
+                      fontWeight: FontWeight.w100,
                     ),
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.r),
+                      borderRadius: BorderRadius.circular(5.r),
                       borderSide: const BorderSide(
-                        color: kPrimaryColor,
+                        color: Color(0XFF2F2F2F),
                       ),
                     ),
                     enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.r),
-                        borderSide: const BorderSide(color: kEntryLightColor)),
+                        borderRadius: BorderRadius.circular(5.r),
+                        borderSide: const BorderSide(color: Color(0XFF2F2F2F))),
                     focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.r),
-                        borderSide: const BorderSide(color: kPrimaryColor)),
+                        borderRadius: BorderRadius.circular(5.r),
+                        borderSide: const BorderSide(color: Color(0XFF2F2F2F))),
                   ),
                   controller: controller,
                 ),
                 SizedBox(
-                  height: 50.h,
+                  height: 30.h,
                 ),
-                SizedBox(
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5.r),
+                    gradient: LinearGradient(colors: [
+                      Color(0XFFF24B55),
+                      Color(0XFFF7782F),
+                    ], begin: Alignment.centerLeft, end: Alignment.centerRight),
+                  ),
                   width: double.infinity,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.symmetric(vertical: 15.h),
-                      primary: kEntryLightColor,
-                    ),
+                        padding: EdgeInsets.symmetric(vertical: 15.h),
+                        primary: Colors.transparent,
+                        shadowColor: Colors.transparent,
+                        elevation: 0),
                     onPressed: () => Navigator.of(context).pushNamed(
                         RouteGenerator.homeView,
                         arguments: controller.text),
                     child: Text(
                       'Continue',
                       style: GoogleFonts.rubik(
-                          fontSize: 20, fontWeight: FontWeight.w700),
+                          fontSize: 15, fontWeight: FontWeight.w500),
                     ),
                   ),
                 ),

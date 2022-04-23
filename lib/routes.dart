@@ -5,18 +5,19 @@ import 'package:bankode/presentation/screens/camera_view/camera_view.dart';
 import 'package:bankode/presentation/screens/camera_view/gallery_view.dart';
 import 'package:bankode/presentation/screens/entry_view.dart';
 import 'package:bankode/presentation/screens/home_view.dart';
-import 'package:bankode/presentation/screens/onboarding.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 
+import 'presentation/screens/splash_screen.dart';
+
 class RouteGenerator {
   static const String entryView = '/';
-  static const String onboardingView = '/onboarding';
   static const String homeView = '/home';
   static const String randomView = '/random';
   static const String bankInfo = '/bankInfo';
   static const String cameraView = '/camera';
   static const String galleryView = '/gallery';
+  static const String splashScreen = '/splashScreen';
 
   RouteGenerator._();
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -37,18 +38,21 @@ class RouteGenerator {
             bank: bank,
           ),
         );
-      case onboardingView:
+      case splashScreen:
         return MaterialPageRoute(
-          builder: (_) => const Onboarding(),
+          builder: (_) => const SplashScreen(),
         );
       case cameraView:
         final camera = settings.arguments as List<CameraDescription>;
         return MaterialPageRoute(
           builder: (_) => CameraScreen(cameras: camera),
-        );case galleryView:
+        );
+      case galleryView:
         final images = settings.arguments as List<File>;
         return MaterialPageRoute(
-          builder: (_) =>  GalleryScreen(images: images,),
+          builder: (_) => GalleryScreen(
+            images: images,
+          ),
         );
       default:
         throw const FormatException("Route not found");

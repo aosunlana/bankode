@@ -46,7 +46,7 @@ class _BankInfoState extends State<BankInfo> {
                   infoTitle: 'Dial Bank USSD ${widget.bank.ussd}',
                   infoSubtitle:
                       'For swift transactions, you can tap here to dial\n Bank USSD directly',
-                  infoImage: 'assets/images/rocket.png',
+                  infoImage: 'assets/images/dial-logo.png',
                   infoColor: const Color(0XFFD2FFE2),
                   infoTitleColor: const Color(0xFF00A138)),
               SizedBox(
