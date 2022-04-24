@@ -38,7 +38,7 @@ class BankodeApp extends StatelessWidget {
         designSize: const Size(375, 812),
         minTextAdapt: true,
         splitScreenMode: true,
-        builder: () => MaterialApp(
+        builder: (_) => MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Bankode',
           theme: ThemeData(
