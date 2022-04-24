@@ -47,7 +47,7 @@
 <a id="about-the-project"></a>
 
 ## Bankode App Description
-The Project used the utilizes the BLoC architectural pattern and Bloc state management tool to manage its states. A fantanstic state mangement approach in flutter — with bloc pattern we would be able to create very high quality and maintainable code.
+The Project utilizes the BLoC architectural pattern and Bloc state management tool to manage its states. A fantanstic state mangement approach in flutter — with bloc pattern we would be able to create very high quality and maintainable code.
 
 
 ## Screenshots
