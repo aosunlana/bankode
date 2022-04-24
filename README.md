@@ -46,9 +46,11 @@
 
 <a id="about-the-project"></a>
 
-## Bankode App (BloC Architecture example)
-Bloc is a fantanstic state mangement approach in flutter — with bloc pattern we would be able to create very high quality and maintainable code if implemented right because bloc uses design pattern which we are most familiar with. This project would be used to show how well we can utilize bloc by building an app that shows dogs according to breeds, their characteristics and several images of dogs.
+## Bankode App Description
+The Project used the utilizes the BLoC architectural pattern and Bloc state management tool to manage its states. A fantanstic state mangement approach in flutter — with bloc pattern we would be able to create very high quality and maintainable code.
 
+
+## Screenshots
 <div height="70px"></div>
 
 
