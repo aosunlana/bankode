@@ -100,16 +100,6 @@ flutter pub get
 |  url_launcher: ^6.0.20|
 |  geolocator: ^8.2.0|
 |  geocoding: ^2.0.4|
-
-## How to contribute
-Feel free to modify the code to aid understanding the project. You may contribute by opening an issue or sending a pull request
-
-## Show your support
-
-Give a ⭐️ if this project helped you!
-
-
-
 <!-- 
 include 
     build flavors
@@ -124,21 +114,6 @@ For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference. -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h1 align="center">Welcome to Bankode 👋</h1>
 <p>
   <a href="https://github.com/developerBarak/bankode#readme" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
@@ -148,18 +123,6 @@ samples, guidance on mobile development, and a full API reference. -->
   </a>
 </p>
 
-> A mobile app that utilizes cubit, displays a list of Nigerian banks and their respective info including ussd codes, logo.
-
-## Install
-
-Download or clone this repo by using the link below:
-```sh
-https://github.com/developerBarak/bankode.git
-```
-Go to project root and execute the following command in console to get the required dependencies:
-```sh
-flutter pub get 
-```
 
 ## Author
 
@@ -168,9 +131,4 @@ flutter pub get
 * Twitter: [@developerBarak](https://twitter.com/developerBarak)
 * Github: [@developerBarak](https://github.com/developerBarak)
 * LinkedIn: [@developerbarak](https://linkedin.com/in/developerbarak)
-
-
-
-
-***
 
