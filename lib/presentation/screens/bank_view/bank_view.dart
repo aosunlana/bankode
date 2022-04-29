@@ -30,7 +30,7 @@ class _BankInfoState extends State<BankInfo> {
           style: const TextStyle(color: Color(0xFF000000)),
         ),
         centerTitle: true,
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.white,
         elevation: 0,
         iconTheme: const IconThemeData(color: Color(0XFF000000)),
       ),
@@ -42,7 +42,8 @@ class _BankInfoState extends State<BankInfo> {
           child: Column(
             children: [
               BankInfoContainer(
-                  onTap: () => CallService.call(widget.bank.ussd),
+                  onTap: () =>
+                      CallService.call(Uri.encodeComponent(widget.bank.ussd)),
                   infoTitle: 'Dial Bank USSD ${widget.bank.ussd}',
                   infoSubtitle:
                       'For swift transactions, you can tap here to dial\n Bank USSD directly',
@@ -53,7 +54,32 @@ class _BankInfoState extends State<BankInfo> {
                 height: ScreenUtil().setHeight(14),
               ),
               BankInfoContainer(
-                onTap: () {},
+                onTap: () {
+                  showDialog<String>(
+                    context: context,
+                    builder: (BuildContext context) => AlertDialog(
+                      title: const Text(
+                        'Unavailable',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w700, fontSize: 13),
+                      ),
+                      content: const Text(
+                        'Selected functionality is not yet available',
+                        style: TextStyle(fontSize: 14),
+                      ),
+                      actions: <Widget>[
+                        TextButton(
+                          onPressed: () => Navigator.pop(context, 'OK'),
+                          child: const Text(
+                            'OK',
+                            style: TextStyle(
+                                fontWeight: FontWeight.w400, fontSize: 14),
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                },
                 infoTitle: 'Download Bank App',
                 infoSubtitle:
                     'For swift transactions, you can tap here to dial\n Bank USSD directly',
@@ -65,7 +91,32 @@ class _BankInfoState extends State<BankInfo> {
                 height: ScreenUtil().setHeight(14),
               ),
               BankInfoContainer(
-                onTap: () {},
+                onTap: () {
+                  showDialog<String>(
+                    context: context,
+                    builder: (BuildContext context) => AlertDialog(
+                      title: const Text(
+                        'Unavailable',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w700, fontSize: 13),
+                      ),
+                      content: const Text(
+                        'Selected functionality is not yet available',
+                        style: TextStyle(fontSize: 14),
+                      ),
+                      actions: <Widget>[
+                        TextButton(
+                          onPressed: () => Navigator.pop(context, 'OK'),
+                          child: const Text(
+                            'OK',
+                            style: TextStyle(
+                                fontWeight: FontWeight.w400, fontSize: 14),
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                },
                 infoTitle: 'Bank Code ${widget.bank.code}',
                 infoSubtitle:
                     'For swift transactions, you can tap here to dial\n Bank USSD directly',

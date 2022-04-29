@@ -1,8 +1,10 @@
 import 'package:bankode/presentation/components/utils/constants.dart';
 import 'package:bankode/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class EntryView extends StatefulWidget {
   const EntryView({Key? key}) : super(key: key);
@@ -16,7 +18,7 @@ class _EntryViewState extends State<EntryView> {
   Widget build(BuildContext context) {
     TextEditingController controller = TextEditingController();
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: true,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -67,6 +69,8 @@ class _EntryViewState extends State<EntryView> {
                         borderSide: const BorderSide(color: Color(0XFF2F2F2F))),
                   ),
                   controller: controller,
+                  maxLength: 20,
+                  maxLengthEnforcement: MaxLengthEnforcement.enforced,
                 ),
                 SizedBox(
                   height: 30.h,
@@ -86,9 +90,25 @@ class _EntryViewState extends State<EntryView> {
                         primary: Colors.transparent,
                         shadowColor: Colors.transparent,
                         elevation: 0),
-                    onPressed: () => Navigator.of(context).pushNamed(
-                        RouteGenerator.homeView,
-                        arguments: controller.text),
+                    onPressed: () async {
+                      if (controller.text.isNotEmpty &&
+                          controller.text.length > 3) {
+                        Navigator.of(context).pushNamed(RouteGenerator.homeView,
+                            arguments: controller.text);
+                        final prefs = await SharedPreferences.getInstance();
+                        prefs.setBool('showHome', true);
+                        prefs.setString('controller', controller.text);
+                      } else
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text(
+                            'Display name is too short',
+                            style: TextStyle(
+                                fontSize: 17, fontWeight: FontWeight.w900),
+                          ),
+                          duration: Duration(seconds: 2),
+                          backgroundColor: Color(0XFFF7782F),
+                        ));
+                    },
                     child: Text(
                       'Continue',
                       style: GoogleFonts.rubik(
