@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/mayor04/Dogs-Explorer-BloC-Architecture-example/">
+  <a href="">
     <img src="https://github.com/developerBarak/bankode/blob/master/assets/screenshots/Group%201.png" alt="Logo" height="70">
   </a>
 
