@@ -60,10 +60,12 @@ class BankInfoContainer extends StatelessWidget {
                   shape: BoxShape.circle,
                   color: Colors.white.withOpacity(0.12),
                 ),
-                child: ClipOval(
+                child: CircleAvatar(
+                  backgroundColor: Colors.white,
                   child: Image.asset(
                     infoImage,
                     fit: BoxFit.cover,
+                    width: 36.w,
                   ),
                 ),
               ),

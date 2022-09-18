@@ -56,7 +56,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   child: const Image(
                       image: AssetImage('assets/images/bankode-text.png')))),
           SizedBox(height: 272.h),
-          Center(child: Text('Version 1.0.3'))
+          Center(child: Text('Version 1.0.5'))
         ],
       ),
     );
